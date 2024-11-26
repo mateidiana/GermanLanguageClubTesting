@@ -110,7 +110,7 @@ public class Main {
 //        readingService.addMandatoryBook(4,1,"Die Verwandlung");
 //        readingService.viewMandatoryBooks(1,1);
 //        readingService.createOrUpdateReadingCourse(2,4,"Readingtemp",25,2);
-        readingService.removeCourse(2,4);
+        //readingService.removeCourse(2,4);
 //        readingService.getAvailableCourses();
 
         IRepository<Grammar> grammarRepo=InFileRepository.getInstance(Grammar.class,"grammar.dat");
