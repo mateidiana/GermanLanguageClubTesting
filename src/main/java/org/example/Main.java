@@ -98,7 +98,7 @@ public class Main {
         readingRepo.update(r1);
 
         readingService.enroll(1,1);
-        readingService.showEnrolledReadingCourses(1);
+        //readingService.showEnrolledReadingCourses(1);
         //readingService.practiceReading(1,1);
         //readingService.reviewPastReadingMistakes(1);
 //        readingService.showStudentsEnrolledInReadingCourses();
@@ -106,6 +106,65 @@ public class Main {
 //        readingService.viewMandatoryBooks(1,1);
 //        readingService.createOrUpdateReadingCourse(2,4,"Readingtemp",25,2);
 //        readingService.getAvailableCourses();
+
+        IRepository<Grammar> grammarRepo=InFileRepository.getInstance(Grammar.class,"grammar.dat");
+        GrammarService grammarService=new GrammarService(grammarRepo,studentRepo,teacherRepo);
+
+        Grammar g1=new Grammar(10,"Grammar1",t1,25);
+        grammarRepo.create(g1);
+        String [][] grammarExercises={
+                { "Du (brauchen) _ Hilfe.", "brauchst" },
+                { "Ich bin _ Hause.", "zu" },
+                { "Er trägt _.", "bei" },
+                { "Diana (setzen)_ sich auf das Sofa.", "setzt" },
+                { "Stefi klettert auf _ Baum.", "den" },
+                { "Ich (besuchen) _ diese Kirche.", "besuche" },
+                { "Wir spielen DOTA in _ Klasse.", "der" },
+                { "Mama kocht immer (lecker)_ Essen", "leckeres" },
+                { "Der Ball ist unter _ Tisch gerollt.", "den" },
+                { "Mein Mann kommt immer betrunken _ Hause.", "nach" }
+        };
+        g1.setExercises(grammarExercises);
+        grammarRepo.update(g1);
+        grammarService.enroll(1,10);
+        //grammarService.showEnrolledGrammarCourses(1);
+        //grammarService.practiceGrammar(1,10);
+        //grammarService.reviewPastMistakes(1,10);
+        //grammarService.showStudentsEnrolledInGrammarCourses();
+        //grammarService.createOrUpdateGrammarCourse(11,4,"GrammarTemp",25);
+        //grammarService.removeCourse(2,4);
+        //grammarService.getAvailableCourses();
+
+
+        IRepository<Vocabulary> vocabRepo=InFileRepository.getInstance(Vocabulary.class,"vocabulary.dat");
+        VocabularyService vocabService=new VocabularyService(vocabRepo,studentRepo,teacherRepo);
+
+        Vocabulary v1=new Vocabulary(20,"Vocabulary1",t1,25);
+        vocabRepo.create(v1);
+        Map<String, String> vocabularyExercises = new HashMap<>();
+        vocabularyExercises.put("Hund", "dog");
+        vocabularyExercises.put("Katze", "cat");
+        vocabularyExercises.put("Apfel", "apple");
+        vocabularyExercises.put("Buch", "book");
+        vocabularyExercises.put("Haus", "house");
+        vocabularyExercises.put("Auto", "car");
+        vocabularyExercises.put("Baum", "tree");
+        vocabularyExercises.put("Blume", "flower");
+        vocabularyExercises.put("Fisch", "fish");
+        vocabularyExercises.put("Brot", "bread");
+        vocabularyExercises.put("Schule", "school");
+
+        v1.setWorter(vocabularyExercises);
+        vocabRepo.update(v1);
+
+        vocabService.enroll(1,20);
+        //vocabService.showEnrolledVocabCourses(1);
+        //vocabService.practiceVocabulary(1,20);
+        //vocabService.reviewPastMistakes(1,20);
+        //vocabService.showStudentsEnrolledInVocabCourses();
+        //vocabService.createOrUpdateVocabularyCourse(21,4,"VocabularyTemp",25);
+        //vocabService.removeVocabularyCourse(21,4);
+        //vocabService.getAvailableCourses();
 
 
     }
