@@ -185,6 +185,20 @@ public class Main {
 //        writingService.removeCourse(31,4);
 //        writingService.getAvailableCourses();
 
+        IRepository<Exam> examRepo=InFileRepository.getInstance(Exam.class,"exam.dat");
+        ExamService examService=new ExamService(examRepo,studentRepo,teacherRepo);
+
+        Exam exam1=new Exam(50,"ReadingExam1",t1);
+        examRepo.create(exam1);
+
+        exam1.setExercises(readingExercises);
+        examRepo.update(exam1);
+
+        //examService.takeReadingExam(1,50);
+        //examService.showReadingResults(1);
+
+
+
     }
 
 
