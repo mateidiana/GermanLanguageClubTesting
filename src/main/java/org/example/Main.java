@@ -166,6 +166,24 @@ public class Main {
         //vocabService.removeVocabularyCourse(21,4);
         //vocabService.getAvailableCourses();
 
+        IRepository<Writing> writingRepo=InFileRepository.getInstance(Writing.class,"writing.dat");
+        WritingService writingService=new WritingService(writingRepo,studentRepo,teacherRepo);
+
+        Writing w1=new Writing(30,"Writing1",t1,25);
+        writingRepo.create(w1);
+        String exercise="Schreibe einen Text über den Frühling. :3";
+        w1.setRequirement(exercise);
+        writingRepo.update(w1);
+
+        writingService.enroll(1,30);
+        //writingService.showEnrolledWritingCourses(1);
+        //writingService.showStudentsEnrolledInWritingCourses();
+        //writingService.practiceWriting(1,30);
+        //writingService.gradeFeedback(4,30);
+        //writingService.showFeedback(1);
+//        writingService.createOrUpdateWritingCourse(31,4,"WritingTemp",25);
+//        writingService.removeCourse(31,4);
+//        writingService.getAvailableCourses();
 
     }
 
