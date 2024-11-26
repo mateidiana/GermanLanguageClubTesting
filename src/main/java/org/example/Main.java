@@ -5,12 +5,17 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 import java.util.List;
 
+import org.example.controller.*;
 import org.example.repo.*;
 import org.example.service.*;
 
 import org.example.model.Student;
 
 import org.example.model.*;
+import org.example.view.StudentView;
+import org.example.view.TeacherView;
+import org.example.view.View;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -105,6 +110,7 @@ public class Main {
 //        readingService.addMandatoryBook(4,1,"Die Verwandlung");
 //        readingService.viewMandatoryBooks(1,1);
 //        readingService.createOrUpdateReadingCourse(2,4,"Readingtemp",25,2);
+        readingService.removeCourse(2,4);
 //        readingService.getAvailableCourses();
 
         IRepository<Grammar> grammarRepo=InFileRepository.getInstance(Grammar.class,"grammar.dat");
@@ -225,6 +231,19 @@ public class Main {
         //examService.gradeWritings(4,53);
         //examService.showWritingResults(1);
 
+        GrammarController grammarController = new GrammarController(grammarService);
+        StudentController studentController = new StudentController(studentService);
+        TeacherController teacherController = new TeacherController(teacherService);
+        ReadingController readingController = new ReadingController(readingService);
+        ExamController examController = new ExamController(examService);
+        VocabController vocabController = new VocabController(vocabService);
+        WritingController writingController = new WritingController(writingService);
+
+        StudentView studentView = new StudentView(studentController,readingController,examController, grammarController, vocabController, writingController);
+        TeacherView teacherView = new TeacherView(teacherController,readingController, writingController,vocabController,grammarController,examController);
+
+        View view = new View(studentView,teacherView);
+        view.start();
 
 
     }

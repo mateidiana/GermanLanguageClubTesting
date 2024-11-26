@@ -30,7 +30,7 @@ public class VocabController {
      * @param studentId the ID of the student
      * @param courseId  the ID of the course
      */
-    public void practiceVocabularyulary(Integer studentId, Integer courseId) {
+    public void practiceVocabulary(Integer studentId, Integer courseId) {
         vocabService.practiceVocabulary(studentId,courseId);
     }
 
@@ -100,7 +100,7 @@ public class VocabController {
      * @param courseName  the name of the course
      * @param maxStudents the maximum number of students allowed in the course
      */
-    public void createOrUpdateVocabularyularyCourse(Integer courseId, Integer teacherId, String courseName, Integer maxStudents) {
+    public void createOrUpdateVocabularyCourse(Integer courseId, Integer teacherId, String courseName, Integer maxStudents) {
         vocabService.createOrUpdateVocabularyCourse(courseId, teacherId, courseName, maxStudents);
     }
 
@@ -110,7 +110,7 @@ public class VocabController {
      * @param courseId  the ID of the course
      * @param teacherId the ID of the teacher
      */
-    public void deleteVocabularyularyCourse(Integer courseId, Integer teacherId) {
+    public void deleteVocabularyCourse(Integer courseId, Integer teacherId) {
         vocabService.removeVocabularyCourse(courseId, teacherId);
     }
 
