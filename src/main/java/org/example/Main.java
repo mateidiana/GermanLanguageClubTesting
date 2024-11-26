@@ -194,8 +194,36 @@ public class Main {
         exam1.setExercises(readingExercises);
         examRepo.update(exam1);
 
+        Exam exam2=new Exam(51,"GrammarExam1",t1);
+        examRepo.create(exam2);
+
+        exam2.setExercises(grammarExercises);
+        examRepo.update(exam2);
+
+        Exam exam3=new Exam(52,"VocabExam1",t1);
+        examRepo.create(exam3);
+
+        exam3.setWorter(vocabularyExercises);
+        examRepo.update(exam3);
+
+        Exam exam4=new Exam(53,"WritingExam1",t1);
+        examRepo.create(exam4);
+
+        exam4.setRequirement(exercise);
+        examRepo.update(exam4);
+
         //examService.takeReadingExam(1,50);
         //examService.showReadingResults(1);
+
+        //examService.takeGrammarExam(1,51);
+        //examService.showGrammarResults(1);
+
+        //examService.takeVocabExam(1,52);
+        //examService.showVocabResults(1);
+
+        //examService.takeWritingExam(1,53);
+        //examService.gradeWritings(4,53);
+        //examService.showWritingResults(1);
 
 
 
