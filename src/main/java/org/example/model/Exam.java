@@ -18,7 +18,7 @@ public class Exam extends Entity{
     private String[][] exercises;
     Map <String, String> worter=new HashMap<>();
     Map<Student,Float> results = new HashMap<>();
-    static String textRequirement;
+    private String textRequirement;
 
     /**
      * Constructs a new {@code Exam} with the specified ID, name, and teacher.
@@ -124,7 +124,7 @@ public class Exam extends Entity{
      *
      * @return The requirement text.
      */
-    public static String getRequirement(){ return textRequirement;}
+    public String getRequirement(){ return textRequirement;}
 
     /**
      * Sets the static text requirement for the writing exam.
