@@ -268,4 +268,13 @@ public class VocabularyService {
                 System.out.println(course);
     }
 
+    public void sortByAvailableSlotsVocab(){
+        List<Vocabulary> vocabList=vocabRepo.getAll();
+        vocabList.sort((vocab1, vocab2) -> Integer.compare(vocab1.getAvailableSlots(), vocab2.getAvailableSlots()));
+
+        vocabList.forEach(vocab -> {
+            System.out.println("Vocabulary: " + vocab.getId() + ", Available Slots: " + vocab.getAvailableSlots());
+        });
+    }
+
 }

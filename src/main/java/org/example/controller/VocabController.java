@@ -125,4 +125,5 @@ public class VocabController {
      */
     public void showEnrolledVocabularyCourses(Integer studentId){vocabService.showEnrolledVocabCourses(studentId);}
 
+    public void sortByAvailableSlotsVocab(){vocabService.sortByAvailableSlotsVocab();}
 }

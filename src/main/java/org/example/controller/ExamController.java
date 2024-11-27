@@ -226,6 +226,9 @@ public class ExamController {
         examService.showResultsOfAllStudentsOnGrammarExam(teacherId);
     }
 
+    public void sortStudentsByGrammarGrades(Integer examId){
+        examService.sortStudentsByGrammarGrades(examId);
+    }
 
 
 }

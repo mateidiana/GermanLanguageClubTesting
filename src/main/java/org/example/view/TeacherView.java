@@ -160,7 +160,7 @@ public class TeacherView {
         boolean continueLoop = true;
 
         while (continueLoop) {
-            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in grammar courses\n3. Create/modify a grammar course\n4. Delete a grammar course\n5. Create/modify a grammar exam\n6. Delete a grammar exam\n7. View the results on exams\n0. Exit\n");
+            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in grammar courses\n3. Create/modify a grammar course\n4. Delete a grammar course\n5. Create/modify a grammar exam\n6. Delete a grammar exam\n7. View the results on exams\n8. View students sorted by grade\n0. Exit\n");
 
             String option = scanner.nextLine();
 
@@ -189,6 +189,8 @@ public class TeacherView {
                 case "7":
                     examController.showResultsOfAllStudentsOnGrammarExam(readTeacherId(scanner));
                     break;
+                case "8":
+                    examController.sortStudentsByGrammarGrades(readExamId(scanner));
                 default:
             }
         }
@@ -202,7 +204,7 @@ public class TeacherView {
         boolean continueLoop = true;
 
         while (continueLoop) {
-            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in vocabulary courses\n3. Create/modify a vocabulary course\n4. Delete a vocabulary course\n5. Create/modify a vocabulary exam\n6. Delete a vocabulary exam\n7. View the results on exams\n0. Exit\n");
+            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in vocabulary courses\n3. Create/modify a vocabulary course\n4. Delete a vocabulary course\n5. Create/modify a vocabulary exam\n6. Delete a vocabulary exam\n7. View the results on exams\n8. Sort courses by available slots\n0. Exit\n");
 
             String option = scanner.nextLine();
 
@@ -231,6 +233,8 @@ public class TeacherView {
                 case "7":
                     examController.showResultsOfAllStudentsOnVocabularyExam(readTeacherId(scanner));
                     break;
+                case "8":
+                    vocabController.sortByAvailableSlotsVocab();
                 default:
             }
         }

@@ -66,7 +66,7 @@ public class Main {
 //            System.out.println(student);
 //        }
 
-//        Student temp=studentService.getStudentById(1);
+     //  Student temp=studentService.getStudentById(1);
 //        System.out.println(temp);
 
 
@@ -110,7 +110,7 @@ public class Main {
 //        readingService.addMandatoryBook(4,1,"Die Verwandlung");
 //        readingService.viewMandatoryBooks(1,1);
 //        readingService.createOrUpdateReadingCourse(2,4,"Readingtemp",25,2);
-        readingService.removeCourse(2,4);
+        //readingService.removeCourse(2,4);
 //        readingService.getAvailableCourses();
 
         IRepository<Grammar> grammarRepo=InFileRepository.getInstance(Grammar.class,"grammar.dat");
@@ -192,7 +192,7 @@ public class Main {
 //        writingService.getAvailableCourses();
 
         IRepository<Exam> examRepo=InFileRepository.getInstance(Exam.class,"exam.dat");
-        ExamService examService=new ExamService(examRepo,studentRepo,teacherRepo);
+        ExamService examService=new ExamService(examRepo,studentRepo,teacherRepo, grammarRepo, writingRepo, vocabRepo, readingRepo);
 
         Exam exam1=new Exam(50,"ReadingExam1",t1);
         examRepo.create(exam1);
