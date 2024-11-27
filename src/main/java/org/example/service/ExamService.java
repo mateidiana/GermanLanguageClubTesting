@@ -697,14 +697,13 @@ public class ExamService {
                 average = average / contor;
                 studentAverageMap.put(student, average);
             }
-            List<Map.Entry<Student, Float>> sortedStudents = new ArrayList<>(studentAverageMap.entrySet());
-            sortedStudents.sort(Map.Entry.comparingByValue());
-            System.out.println("Students sorted by average grades for exam ID " + examId + ":");
-            for (Map.Entry<Student, Float> entry : sortedStudents) {
-                Student student2 = entry.getKey();
-                float average2 = entry.getValue();
-                System.out.println("Student: " + student2.getName() + ", Average Grade: " + average2);
-            }
+        }List<Map.Entry<Student, Float>> sortedStudents = new ArrayList<>(studentAverageMap.entrySet());
+        sortedStudents.sort(Map.Entry.comparingByValue());
+        System.out.println("Students sorted by average grades for exam ID " + examId + ":");
+        for (Map.Entry<Student, Float> entry : sortedStudents) {
+            Student student2 = entry.getKey();
+            float average2 = entry.getValue();
+            System.out.println("Student: " + student2.getName() + ", Average Grade: " + average2);
         }
     }
 
@@ -724,7 +723,7 @@ public class ExamService {
             }
             if (contor > 0) {
                 average = average / contor;
-                if(average<5.0)
+                if(average>5.0)
                     studentAverageMap.put(student, average);
             }
         }
@@ -754,7 +753,7 @@ public class ExamService {
             if (contor > 0) {
                 average = average / contor;
                 if(average<maxGrade) maxGrade=average;
-                if(average<5.0)
+                if(average>5.0)
                 studentAverageMap.put(student, average);
             }
         }
