@@ -230,5 +230,12 @@ public class ExamController {
         examService.sortStudentsByGrammarGrades(examId);
     }
 
+    public void filterStudentsByPassingGradeReading(Integer courseId){
+        examService.filterStudentsByPassingGradeReading(courseId);
+    }
+
+    public void filterByHighestAverageWriting(Integer examId){
+        examService.filterByHighestAverageWriting(examId);
+    }
 
 }

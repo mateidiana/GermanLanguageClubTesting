@@ -678,9 +678,10 @@ public class ExamService {
             }
         }
     }
-    public void sortStudentsByGrammarGrades(Integer examId){
-        Exam exam=getExamById(examId);
-        List<Student> students=exam.getExaminedStudents();
+
+    public void sortStudentsByGrammarGrades(Integer examId) {
+        Exam exam = getExamById(examId);
+        List<Student> students = exam.getExaminedStudents();
         Map<Student, Float> studentAverageMap = new HashMap<>();
         for (Student student : students) {
             Map<Integer, Float> grammarResults = student.getGrammarResults();
@@ -691,10 +692,10 @@ public class ExamService {
                     average += entry.getValue();
                     contor++;
                 }
-                if (contor > 0) {
-                    average = average / contor;
-                    studentAverageMap.put(student, average);
-                }
+            }
+            if (contor > 0) {
+                average = average / contor;
+                studentAverageMap.put(student, average);
             }
             List<Map.Entry<Student, Float>> sortedStudents = new ArrayList<>(studentAverageMap.entrySet());
             sortedStudents.sort(Map.Entry.comparingByValue());
@@ -707,4 +708,61 @@ public class ExamService {
         }
     }
 
+    public void filterStudentsByPassingGradeReading(Integer examId) {
+        Exam exam = getExamById(examId);
+        List<Student> students = exam.getExaminedStudents();
+        Map<Student, Float> studentAverageMap = new HashMap<>();
+        for (Student student : students) {
+            Map<Integer, Float> readingResults = student.getReadingResults();
+            float average = 0;
+            int contor = 0;
+            for (Map.Entry<Integer, Float> entry : readingResults.entrySet()) {
+                if (entry.getKey().equals(examId)) {
+                    average += entry.getValue();
+                    contor++;
+                }
+            }
+            if (contor > 0) {
+                average = average / contor;
+                if(average<5.0)
+                    studentAverageMap.put(student, average);
+            }
+        }
+        System.out.println("Students that passed the exam " + examId + ":");
+        for (Map.Entry<Student, Float> entry3 : studentAverageMap.entrySet()) {
+            Student student2 = entry3.getKey();
+            float average2 = entry3.getValue();
+            System.out.println("Student: " + student2.getName() + ", Average Grade: " + average2);
+        }
+    }
+
+    public void filterByHighestAverageWriting(Integer examId){
+        Exam exam = getExamById(examId);
+        List<Student> students = exam.getExaminedStudents();
+        Map<Student, Float> studentAverageMap = new HashMap<>();
+        float maxGrade=0;
+        for (Student student : students) {
+            Map<Integer, Float> writingResults = student.getWritingExamResults();
+            float average = 0;
+            int contor = 0;
+            for (Map.Entry<Integer, Float> entry : writingResults.entrySet()) {
+                if (entry.getKey().equals(examId)) {
+                    average += entry.getValue();
+                    contor++;
+                }
+            }
+            if (contor > 0) {
+                average = average / contor;
+                if(average<maxGrade) maxGrade=average;
+                if(average<5.0)
+                studentAverageMap.put(student, average);
+            }
+        }
+        for (Map.Entry<Student, Float> entry3 : studentAverageMap.entrySet()) {
+            Student student2 = entry3.getKey();
+            float average2 = entry3.getValue();
+            if(average2==maxGrade)
+            System.out.println("Student: " + student2.getName() + ", Average Grade: " + average2);
+        }
+}
 }

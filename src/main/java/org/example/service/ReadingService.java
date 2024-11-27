@@ -468,9 +468,6 @@ public class ReadingService {
             course.getMandatoryBooks().add(book);
             readingRepo.update(course);
         }
-        else System.out.println("You don t have access to this course");
+        else System.out.println("You don't have access to this course");
     }
-
-
-
 }

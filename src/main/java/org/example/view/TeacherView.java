@@ -67,7 +67,7 @@ public class TeacherView {
         boolean continueLoop = true;
 
         while (continueLoop) {
-            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in reading courses\n3. Create/modify a reading course\n4. Delete a reading course\n5. Create/modify a reading exam\n6. Delete a reading exam\n7. View the results on exams\n8. Add a mandatory book\n0. Exit\n");
+            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in reading courses\n3. Create/modify a reading course\n4. Delete a reading course\n5. Create/modify a reading exam\n6. Delete a reading exam\n7. View the results on exams\n8. Add a mandatory book\n9. Show passing students\n0. Exit\n");
 
             String option = scanner.nextLine();
 
@@ -99,6 +99,8 @@ public class TeacherView {
                 case "8":
                     readingController.addMandatoryBook(readTeacherId(scanner),readCourseId(scanner),readBookName(scanner));
                     break;
+                case "9":
+                    examController.filterStudentsByPassingGradeReading(readCourseId(scanner));
                 default:
             }
         }
@@ -112,7 +114,7 @@ public class TeacherView {
         boolean continueLoop = true;
 
         while (continueLoop) {
-            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in writing courses\n3. Create/modify a writing course\n4. Delete a writing course\n5. Create/modify a writing exam\n6. Delete a writing exam\n7. View the results on exams\n8. Grade writing exams\n9. Grade reading practices\n0. Exit\n");
+            System.out.print("Select an option:\n\n1. View your courses\n2. View students enrolled in writing courses\n3. Create/modify a writing course\n4. Delete a writing course\n5. Create/modify a writing exam\n6. Delete a writing exam\n7. View the results on exams\n8. Grade writing exams\n9. Grade writing practices\n10. Show students with the highest grade\n0. Exit\n");
 
             String option = scanner.nextLine();
 
@@ -147,6 +149,8 @@ public class TeacherView {
                 case "9":
                     writingController.gradePractice(readTeacherId(scanner), readCourseId(scanner));
                     break;
+                case "10":
+                    examController.filterByHighestAverageWriting(readExamId(scanner));
                 default:
             }
         }
