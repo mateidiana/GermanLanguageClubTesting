@@ -50,6 +50,7 @@ public class Main {
     public static void main(String[] args) {
 
         //basicOperations();
+        //IRepository<Student> studentRepo=new InMemoryRepository<>();
 
         IRepository<Student> studentRepo=InFileRepository.getInstance(Student.class,"student.dat");
         StudentService studentService = new StudentService(studentRepo);
