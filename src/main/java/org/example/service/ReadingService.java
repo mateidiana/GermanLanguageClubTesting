@@ -465,8 +465,9 @@ public class ReadingService {
         Reading course=getReadingById(courseId);
         if(course.getTeacher().getId().equals(teacherId))
         {
+            readingRepo.delete(courseId);
             course.getMandatoryBooks().add(book);
-            readingRepo.update(course);
+            readingRepo.create(course);
         }
         else System.out.println("You don't have access to this course");
     }
