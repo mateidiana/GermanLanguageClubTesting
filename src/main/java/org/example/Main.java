@@ -118,7 +118,7 @@ public class Main {
         GrammarService grammarService=new GrammarService(grammarRepo,studentRepo,teacherRepo);
 
         Grammar g1=new Grammar(10,"Grammar1",t1,25);
-        grammarRepo.create(g1);
+        //grammarRepo.create(g1);
         String [][] grammarExercises={
                 { "Du (brauchen) _ Hilfe.", "brauchst" },
                 { "Ich bin _ Hause.", "zu" },
@@ -132,7 +132,7 @@ public class Main {
                 { "Mein Mann kommt immer betrunken _ Hause.", "nach" }
         };
         g1.setExercises(grammarExercises);
-        grammarRepo.update(g1);
+        //grammarRepo.update(g1);
         grammarService.enroll(1,10);
         //grammarService.showEnrolledGrammarCourses(1);
         //grammarService.practiceGrammar(1,10);
@@ -147,7 +147,7 @@ public class Main {
         VocabularyService vocabService=new VocabularyService(vocabRepo,studentRepo,teacherRepo);
 
         Vocabulary v1=new Vocabulary(20,"Vocabulary1",t1,25);
-        vocabRepo.create(v1);
+        //vocabRepo.create(v1);
         Map<String, String> vocabularyExercises = new HashMap<>();
         vocabularyExercises.put("Hund", "dog");
         vocabularyExercises.put("Katze", "cat");
@@ -162,7 +162,7 @@ public class Main {
         vocabularyExercises.put("Schule", "school");
 
         v1.setWorter(vocabularyExercises);
-        vocabRepo.update(v1);
+        //vocabRepo.update(v1);
 
         vocabService.enroll(1,20);
         //vocabService.showEnrolledVocabCourses(1);
@@ -177,10 +177,10 @@ public class Main {
         WritingService writingService=new WritingService(writingRepo,studentRepo,teacherRepo);
 
         Writing w1=new Writing(30,"Writing1",t1,25);
-        writingRepo.create(w1);
+        //writingRepo.create(w1);
         String exercise="Schreibe einen Text über den Frühling. :3";
         w1.setRequirement(exercise);
-        writingRepo.update(w1);
+        //writingRepo.update(w1);
 
         writingService.enroll(1,30);
         //writingService.showEnrolledWritingCourses(1);
@@ -196,28 +196,28 @@ public class Main {
         ExamService examService=new ExamService(examRepo,studentRepo,teacherRepo, grammarRepo, writingRepo, vocabRepo, readingRepo);
 
         Exam exam1=new Exam(50,"ReadingExam1",t1);
-        examRepo.create(exam1);
+        //examRepo.create(exam1);
 
         exam1.setExercises(readingExercises);
-        examRepo.update(exam1);
+        //examRepo.update(exam1);
 
         Exam exam2=new Exam(51,"GrammarExam1",t1);
-        examRepo.create(exam2);
+        //examRepo.create(exam2);
 
         exam2.setExercises(grammarExercises);
-        examRepo.update(exam2);
+        //examRepo.update(exam2);
 
         Exam exam3=new Exam(52,"VocabExam1",t1);
-        examRepo.create(exam3);
+        //examRepo.create(exam3);
 
         exam3.setWorter(vocabularyExercises);
-        examRepo.update(exam3);
+        //examRepo.update(exam3);
 
         Exam exam4=new Exam(53,"WritingExam1",t1);
-        examRepo.create(exam4);
+        //examRepo.create(exam4);
 
         exam4.setRequirement(exercise);
-        examRepo.update(exam4);
+        //examRepo.update(exam4);
 
         //examService.takeReadingExam(1,50);
         //examService.showReadingResults(1);
