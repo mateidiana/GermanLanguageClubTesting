@@ -1,7 +1,6 @@
 package org.example.service;
 import java.util.Scanner;
 import java.util.List;
-import java.util.Random;
 
 import org.example.model.*;
 import org.example.repo.*;
