@@ -246,7 +246,6 @@ public class Main {
         View view = new View(studentView,teacherView);
         view.start();
 
-
     }
 
 
